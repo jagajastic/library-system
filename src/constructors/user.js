@@ -27,18 +27,23 @@ User.prototype.read = function(id) {
   return findUser(id);
 };
 
+// update user infomation when found, else return false
 User.prototype.update = function(data, id) {
+  // find user, if found return else return false
   var user = findUser(id);
   if (user) {
+    // update each field in found user
     user.username = data.username,
     user.password = data.password,
     user.priority = data.priority
-  }else { return user}
+  }
+  // return false cause user not found
+  return user
 };
 // var user1 = new User("joe", "pass", 3);
 // user1.create();
 // console.log(db.users);
-// console.log(user1.update({username : 'uuser', password: 'upass', priority: 1}, 10));
+// console.log(user1.update({username : 'uuser', password: 'upass', priority: 1}, 1));
 // console.log(db.users);
 // export user constructor
 module.exports = User;
