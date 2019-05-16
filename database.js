@@ -1,6 +1,6 @@
 // declare database(db) variable to hold records
 var db = {
-    user: [],
+    users: [],
     admin: [],
     books: [],
     request: []
