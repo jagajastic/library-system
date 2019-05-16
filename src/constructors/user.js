@@ -33,17 +33,31 @@ User.prototype.update = function(data, id) {
   var user = findUser(id);
   if (user) {
     // update each field in found user
-    user.username = data.username,
-    user.password = data.password,
-    user.priority = data.priority
+    (user.username = data.username),
+      (user.password = data.password),
+      (user.priority = data.priority);
   }
   // return false cause user not found
-  return user
+  return user;
+};
+
+User.prototype.delete = function(id) {
+  // return false when id is empty
+  if (!id) {
+    return false;
+  }
+  // loop  through array
+  for (var index = 0; index < db.users.length; index++) {
+    // remove the found user from the array using splice
+    if (db.users[index].id === id) return db.users.splice(index, 1);
+  }
+  // return false when user is not found;
+  return false;
 };
 // var user1 = new User("joe", "pass", 3);
 // user1.create();
 // console.log(db.users);
 // console.log(user1.update({username : 'uuser', password: 'upass', priority: 1}, 1));
-// console.log(db.users);
+// console.log(user1.delete(1));
 // export user constructor
 module.exports = User;
