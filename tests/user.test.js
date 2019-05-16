@@ -84,5 +84,5 @@ describe('Delete method Test', function () {
   test('if record is not found', function () {
     var user1 = new User("lot", "pass", 1);
     expect(user1.delete(90)).toBeFalsy();
-  })
+  });
 });
