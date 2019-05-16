@@ -6,7 +6,7 @@ var resetDB = require("../helpers/reset-db");
 var db = require("../database");
 
 // User constructor suite
-describe("User Constructor Test suite", function() {
+describe("User Constructor Test ", function() {
   test("if user constructor can create object", function() {
     var user1 = new User("joe", "pass", 3);
     expect(user1).toMatchObject({
@@ -25,7 +25,7 @@ describe("User Constructor Test suite", function() {
 });
 
 // read method
-describe("Read Test Suite", function() {
+describe("Read Test ", function() {
   // read user record method test suite
   test("if read method return user with right user id", function() {
     var user1 = new User("readme", "pass", 3);
@@ -50,7 +50,7 @@ describe("Read Test Suite", function() {
 });
 
 // update method
-describe("Update Test Suite", function() {
+describe("Update Test", function() {
   test("if update method return the update users", function() {
     var user1 = new User("lot", "pass", 1);
     user1.create();
@@ -71,4 +71,18 @@ describe("Update Test Suite", function() {
       user1.update({ username: "uuser", password: "upass", priority: 1 }, 50)
     ).toBeFalsy();
   });
+});
+
+
+// delete method
+describe('Delete method Test', function () {
+  test('if record is deleted from database', function () {
+    var user1 = new User("lot", "pass", 1);
+    expect(user1.delete(1)).toHaveLength(1);
+  });
+
+  test('if record is not found', function () {
+    var user1 = new User("lot", "pass", 1);
+    expect(user1.delete(90)).toBeFalsy();
+  })
 });
