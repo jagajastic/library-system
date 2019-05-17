@@ -37,7 +37,6 @@ Book.prototype.update = function(data, id) {
   } else {
     return false;
   }
-  console.log(db.books);
 };
 
 Book.prototype.delete = function(id) {
@@ -53,13 +52,35 @@ Book.prototype.delete = function(id) {
   }
   return false;
 };
-// var book1 = new Book('new school', 'maths', 'Gandi Bi', 3);
+
+// search book method
+Book.prototype.search = function(bookTitle) {
+  // return false if book title is undefined
+  if (!bookTitle || typeof(bookTitle) === 'number') {
+    return false;
+  }
+  // regex pattern to check with book title
+  var pattern = new RegExp(bookTitle, "g");
+  // empty array to store match found
+  var foundTitle = []
+  // loop through book array, return all booktitle match
+  for (var index = 0; index < db.books.length; index++) {
+    // check for match with the regex pattern
+    if (db.books[index].title.match(pattern)) {
+      // store match result to 
+      foundTitle.push(db.books[index]);
+    }
+  }
+  return foundTitle;
+};
+// var book1 = new Book('new erfgh', 'maths', 'Gandi Bi', 3);
 // book1.create();
-// var book2 = new Book('new school', 'maths', 'Gandi Bi', 3);
+// var book2 = new Book('news conprehensive math', 'maths', 'Gandi Bi', 3);
 // book2.create();
-// console.log(book1.read(90));
-// console.log(book1.update({title: 'unew', category: 'umath', author: 'uauhtor', quantity: 5}, 12));
+// book1.read(90);
+// book1.update({title: 'unew', category: 'umath', author: 'uauhtor', quantity: 5}, 12);
 // book1.delete(1);
+// console.log(book1.search('news'));
 // console.log(db.books);
 // export book constructor
 module.exports = Book;
