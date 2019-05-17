@@ -1,5 +1,7 @@
 // import book constructor
 var Book = require("../src/constructors/book");
+// import database
+var db = require("../database");
 
 // book constructor suite
 describe("Book Constructor Test suite", function() {
@@ -48,4 +50,38 @@ describe("Read Book Test", function() {
     book1.create();
     expect(book1.read(80)).toBeFalsy();
   });
+});
+
+// update method
+describe("Update Test", function() {
+  test("if record updated and save to database", function() {
+    var book1 = new Book("General math", "maths", "Prof Basi", 2);
+    expect(
+      book1.update(
+        {
+          title: "uGeneral math",
+          category: "umaths",
+          author: "uGen",
+          quantity: 4
+        },
+        4
+      )
+    ).toBeTruthy();
+  });
+
+  test("if record id is not found", function() {
+    var book1 = new Book("General math", "maths", "Prof Basi", 2);
+    expect(
+      book1.update(
+        {
+          title: "uGeneral math",
+          category: "umaths",
+          author: "uGen",
+          quantity: 4
+        },
+        
+      )
+    ).toBeFalsy();
+  });
+
 });
