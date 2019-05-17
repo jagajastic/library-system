@@ -20,7 +20,7 @@ function findRequest(id) {
     // define new middle
     middle = Math.floor((start + end) / 2);
   }
-  // return the user if id is eqaul else return false
+  // return the request if id is eqaul else return false
   return db.request[middle].id === id ? db.request[middle] : false;
 }
 
