@@ -63,6 +63,21 @@ Request.prototype.update = function(data, id) {
   // return false if request not found
   return request;
 };
+
+// delete request method
+Request.prototype.delete = function (id) {
+  // return false when id is empty
+  if (!id) {
+    return false;
+  }
+  // loop  through array
+  for (var index = 0; index < db.request.length; index++) {
+    // remove the found user from the array using splice
+    if (db.request[index].id === id) return db.request.splice(index, 1);
+  }
+  // return false when user is not found;
+  return false;
+}
 // create book
 // var book1 = new Book("new school", "physics", "Gandi bi", 1);
 // book1.create();
@@ -76,6 +91,7 @@ Request.prototype.update = function(data, id) {
 // var req1 = new Request(1, 1);
 // console.log(req1.create());
 // req1.update({bookId: 2}, 1);
+// req1.delete(3);
 // console.log(req1.read(1));
 
 console.log(db.request);
