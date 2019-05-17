@@ -1,7 +1,5 @@
 // import user constructor
 var User = require("../src/constructors/user");
-// import reset database function
-var resetDB = require("../helpers/reset-db");
 // import database
 var db = require("../database");
 
