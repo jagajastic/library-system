@@ -85,3 +85,21 @@ describe("Update Test", function() {
   });
 
 });
+
+// delete method
+describe('Update method Test', function () {
+  test('if deleted record is return ', function () {
+    var book1 = new Book("General math", "maths", "Prof Basi", 110);
+    expect(book1.delete(1)).toHaveLength(1);
+  });
+
+  test('if record to be deleted have wrong id ', function () {
+    var book1 = new Book("General math", "maths", "Prof Basi", 110);
+    expect(book1.delete(16)).toBeFalsy();
+  });
+  
+  test('if record id is not passed', function () {
+    var book1 = new Book("General math", "maths", "Prof Basi", 110);
+    expect(book1.delete()).toBeFalsy();
+  });
+});
