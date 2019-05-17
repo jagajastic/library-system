@@ -10,6 +10,8 @@ var Book = require("../constructors/book");
 var User = require("../constructors/user");
 // import database
 var db = require("../../database");
+// import find-request
+var findRequest = require('../../helpers/find-request');
 
 // request constructor
 function Request(bookId, userId) {
@@ -38,11 +40,11 @@ Request.prototype.create = function() {
 // read method
 Request.prototype.read = function (id) {
   // return false if id is undefind
-  // if (!id){
-  //   return false;
-  // }
-
-  // return db.
+  if (!id){
+    return false;
+  }
+// return the request when found, else return false
+  return findRequest(id);
 }
 // create book
 // var book1 = new Book("new school", "physics", "Gandi bi", 1);
@@ -51,8 +53,9 @@ Request.prototype.read = function (id) {
 // var student = new User("joe", "pass", 3);
 // student.create();
 // // request obj
-// var req1 = new Request(9, 1);
+// var req1 = new Request(1, 1);
 // console.log(req1.create());
+// console.log(req1.read(1));
 // console.log(db);
 
 // export Request constructor
