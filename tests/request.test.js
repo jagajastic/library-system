@@ -96,3 +96,40 @@ describe("Read request Method test", function() {
     expect(req1.read(undefined)).toBeFalsy();
   });
 });
+
+// update method tes
+describe("Update request method Test", function() {
+  beforeAll(function() {
+    db.users.length = 0;
+    db.books.length = 0;
+    db.request.length = 0;
+    // create book
+    var book1 = new Book("new school", "physics", "Gandi bi", 4);
+    book1.create();
+    // creat another book
+    var book2 = new Book("new school chemistry", "chemistry", 0);
+    book2.create();
+    // create user
+    var student = new User("joe", "pass", 3);
+    student.create();
+    
+  });
+
+  test("if record was updated", function() {
+    var req1 = new Request(1, 1);
+    req1.create();
+    expect(req1.update({bookId: 4}, 1)).toBeTruthy();
+  });
+
+  test("if request id does not exist", function() {
+    var req1 = new Request(1, 1);
+    req1.create();
+    expect(req1.update({bookId: 4}, 4)).toBeFalsy();
+  });
+
+  test("if request id is undefined", function() {
+    var req1 = new Request(1, 1);
+    req1.create();
+    expect(req1.update({bookId: 4}, )).toBeFalsy();
+  });
+});
