@@ -72,34 +72,57 @@ describe("Update Test", function() {
   test("if record id is not found", function() {
     var book1 = new Book("General math", "maths", "Prof Basi", 2);
     expect(
-      book1.update(
-        {
-          title: "uGeneral math",
-          category: "umaths",
-          author: "uGen",
-          quantity: 4
-        },
-        
-      )
+      book1.update({
+        title: "uGeneral math",
+        category: "umaths",
+        author: "uGen",
+        quantity: 4
+      })
     ).toBeFalsy();
   });
-
 });
 
 // delete method
-describe('Update method Test', function () {
-  test('if deleted record is return ', function () {
+describe("Update method Test", function() {
+  test("if deleted record is return ", function() {
     var book1 = new Book("General math", "maths", "Prof Basi", 110);
     expect(book1.delete(1)).toHaveLength(1);
   });
 
-  test('if record to be deleted have wrong id ', function () {
+  test("if record to be deleted have wrong id ", function() {
     var book1 = new Book("General math", "maths", "Prof Basi", 110);
     expect(book1.delete(16)).toBeFalsy();
   });
-  
-  test('if record id is not passed', function () {
+
+  test("if record id is not passed", function() {
     var book1 = new Book("General math", "maths", "Prof Basi", 110);
     expect(book1.delete()).toBeFalsy();
+  });
+});
+
+//  search book
+describe("Search Test Suite", function() {
+  test("if book is found, return the book(s)", function() {
+    var book2 = new Book("news conprehensive math", "maths", "Gandi Bi", 3);
+    book2.create();
+    expect(book2.search('new')).toHaveLength(3);
+  });
+
+  test("if book is not found, return empty search", function() {
+    var book2 = new Book("news conprehensive math", "maths", "Gandi Bi", 3);
+    book2.create();
+    expect(book2.search('newsy')).toHaveLength(0);
+  });
+
+  test("if book title is not given, return false", function() {
+    var book2 = new Book("news conprehensive math", "maths", "Gandi Bi", 3);
+    book2.create();
+    expect(book2.search()).toBeFalsy();
+  });
+
+  test("if book title is a number, return false", function() {
+    var book2 = new Book("news conprehensive math", "maths", "Gandi Bi", 3);
+    book2.create();
+    expect(book2.search(4)).toBeFalsy();
   });
 });
