@@ -34,14 +34,32 @@ Book.prototype.update = function(data, id) {
     book.author = data.author;
     book.quantity = data.quantity;
     return true;
-  } else {return false;}
+  } else {
+    return false;
+  }
   console.log(db.books);
-  
+};
+
+Book.prototype.delete = function(id) {
+  // return false if id is undefined
+  if (!id) {
+    return false;
+  }
+  //loop throuh array of book and remove the item that match the give id
+  for (var index = 0; index < db.books.length; index++) {
+    if (db.books[index].id === id) {
+      return db.books.splice(index, 1);
+    }
+  }
+  return false;
 };
 // var book1 = new Book('new school', 'maths', 'Gandi Bi', 3);
 // book1.create();
+// var book2 = new Book('new school', 'maths', 'Gandi Bi', 3);
+// book2.create();
 // console.log(book1.read(90));
 // console.log(book1.update({title: 'unew', category: 'umath', author: 'uauhtor', quantity: 5}, 12));
+// book1.delete(1);
 // console.log(db.books);
 // export book constructor
 module.exports = Book;
