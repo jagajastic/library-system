@@ -12,7 +12,7 @@ function findUser (id) {
   // middle of the array
   var middle = Math.floor((start + end) / 2);
   while (db.users[middle].id !== id && start <= end) {
-    // check if id is less than the middle item id and rassign end to (middle -1)
+    // check if id is less than the middle item id and reassign end to (middle -1)
     if (id < db.users[middle].id) end = middle - 1;
     // assign middle +1 to start
     else start = middle + 1;
