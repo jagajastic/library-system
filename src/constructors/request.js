@@ -72,10 +72,10 @@ Request.prototype.delete = function (id) {
   }
   // loop  through array
   for (var index = 0; index < db.request.length; index++) {
-    // remove the found user from the array using splice
+    // remove the found request from the array using splice
     if (db.request[index].id === id) return db.request.splice(index, 1);
   }
-  // return false when user is not found;
+  // return false when request is not found;
   return false;
 }
 // create book
