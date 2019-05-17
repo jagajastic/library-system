@@ -3,15 +3,49 @@ var Book = require("../src/constructors/book");
 
 // book constructor suite
 describe("Book Constructor Test suite", function() {
-    test("if book constructor can create object", function() {
-      var book1 = new Book("new school", "maths", "Gandi Bi", 1);
-      expect(book1).toMatchObject({
-        id: 1,
-        title: "new school",
-        category: "maths",
-        author: "Gandi Bi",
-        quantity: 1
-      });
+  test("if book constructor can create object", function() {
+    var book1 = new Book("new school", "maths", "Gandi Bi", 1);
+    expect(book1).toMatchObject({
+      id: 1,
+      title: "new school",
+      category: "maths",
+      author: "Gandi Bi",
+      quantity: 1
     });
   });
-  
+});
+
+// create book suite
+describe("Create book Test", function() {
+  test("if book method add record to db", function() {
+    var book1 = new Book("new school", "maths", "Gandi Bi", 3);
+    expect(book1.create()).toBe(1);
+  });
+});
+
+// read book
+describe("Read Book Test", function() {
+  test("if the return value is book", function() {
+    var book1 = new Book("new school", "maths", "Gandi Bi", 3);
+    book1.create();
+    expect(book1.read(2)).toMatchObject({
+      author: "Gandi Bi",
+      category: "maths",
+      id: 2,
+      quantity: 3,
+      title: "new school"
+    });
+  });
+
+  test("if the value return false when id is not found", function() {
+    var book1 = new Book("new school", "maths", "Gandi Bi", 3);
+    book1.create();
+    expect(book1.read(80)).toBeFalsy();
+  });
+
+  test("if the return value is false when id given", function() {
+    var book1 = new Book("new school", "maths", "Gandi Bi", 3);
+    book1.create();
+    expect(book1.read(80)).toBeFalsy();
+  });
+});
