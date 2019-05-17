@@ -13,7 +13,7 @@ function Admin(username, password) {
 }
 
 // Inherit request method
-Admin.prototype = Object.create(Request.prototype);
+Admin.prototype = Object.create(User.prototype);
 // re-assign Admin connstructor
 Admin.prototype.constructor = Admin;
 
