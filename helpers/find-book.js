@@ -1,7 +1,7 @@
 // import database
 var db  = require('../database');
 
-
+// find book function
 function findBook(id) {
       // return false if id is undefined
   if (!id) {
