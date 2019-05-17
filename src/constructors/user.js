@@ -24,6 +24,11 @@ User.prototype.create = function() {
  * return users
  */
 User.prototype.read = function(id) {
+  // return false if id is undefined
+  if (!id){
+    // return false since id is undefined
+    return false;
+  }
   return findUser(id);
 };
 

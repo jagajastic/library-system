@@ -1,7 +1,7 @@
 // import database
 var db  = require('../database');
 
-
+// find book function
 function findBook(id) {
       // return false if id is undefined
   if (!id) {
@@ -21,7 +21,7 @@ function findBook(id) {
     // define new middle
     middle = Math.floor((start + end) / 2);
   }
-  // return the user if id is eqaul else return false
+  // return the book if id is eqaul else return false
   return db.books[middle].id === id ? db.books[middle] : false;
 }
 
