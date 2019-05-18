@@ -40,7 +40,7 @@ Request.prototype.create = function() {
 // read method
 Request.prototype.read = function(id) {
   // return false if id is undefind
-  if (!id) {
+  if (!id || id === undefined || id === null) {
     return false;
   }
   // return the request when found, else return false
@@ -94,7 +94,7 @@ Request.prototype.delete = function (id) {
 // req1.delete(3);
 // console.log(req1.read(1));
 
-console.log(db.request);
+// console.log(db.request);
 
 // export Request constructor
 module.exports = Request;
