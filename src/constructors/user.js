@@ -6,8 +6,10 @@ var db = require("../../database");
 var findUser = require("../../helpers/find-user");
 //  import request constructor
 var Request = require("../constructors/request");
+// import find-request
+var findRequest = require('../../helpers/find-request');
 // import book
-var Book = require("../constructors/book");
+var Book = require('../constructors/book');
 
 //User constructor
 function User(username, password, priority) {
@@ -73,6 +75,14 @@ User.prototype.createBookRequest = function(data) {
   // return the created request if userId and bookId is correct else return false
   return result;
 };
+
+// read book requestion 
+User.prototype.readBookRequest = function (id) {
+  // instantiate the request(object)
+  var req1 = new Request(1, 1);
+  // return result of read whether false or true
+  return req1.read(id);
+}
 // var user1 = new User("joe", "pass", 3);
 // user1.create();
 // console.log(db.users);
@@ -81,8 +91,9 @@ User.prototype.createBookRequest = function(data) {
 // );
 // var book1 = new Book("text book", "math", "authur", 4);
 // book1.create();
-// user1.createBookRequest({ bookId: 1, userId: 5 });
-// console.log(db)
+// user1.createBookRequest({ bookId: 1, userId: 1 });
+// // user1.readBookRequest(1)
+// console.log(db.request)
 // console.log(user1.delete(1));
 // export user constructor
 module.exports = User;
