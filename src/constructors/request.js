@@ -19,7 +19,7 @@ function Request(bookId, userId, userPriority) {
   this.bookId = bookId;
   this.userId = userId;
   this.userPriority = userPriority;
-  this.status = 0;
+  this.status = 'pending';
 }
 
 // create request method
