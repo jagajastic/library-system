@@ -5,26 +5,28 @@ var assignId = require("../../helpers/assign-id");
 // import assign-id helper function
 var findBook = require("../../helpers/find-book");
 // import book
-var Book = require("../constructors/book");
+// var Book = require("../constructors/book");
 // import users
-var User = require("../constructors/user");
+// var User = require("../constructors/user");
 // import database
 var db = require("../../database");
 // import find-request
 var findRequest = require("../../helpers/find-request");
 
 // request constructor
-function Request(bookId, userId) {
+function Request(bookId, userId, userPriority) {
   this.id = assignId("request");
   this.bookId = bookId;
   this.userId = userId;
+  this.userPriority = userPriority;
   this.status = 0;
 }
 
 // create request method
 Request.prototype.create = function() {
   // check if user, book exist
-  if (!findUser(this.userId) || !findBook(this.bookId)) {
+
+  if (!findUser(this.userId) || !findBook(this.bookId) || !this.userPriority) {
     // return false for book/user do not exist
     return false;
   }
@@ -65,7 +67,7 @@ Request.prototype.update = function(data, id) {
 };
 
 // delete request method
-Request.prototype.delete = function (id) {
+Request.prototype.delete = function(id) {
   // return false when id is empty
   if (!id) {
     return false;
@@ -77,7 +79,7 @@ Request.prototype.delete = function (id) {
   }
   // return false when request is not found;
   return false;
-}
+};
 // create book
 // var book1 = new Book("new school", "physics", "Gandi bi", 1);
 // book1.create();
@@ -88,7 +90,7 @@ Request.prototype.delete = function (id) {
 // var student = new User("joe", "pass", 3);
 // student.create();
 // // request obj
-// var req1 = new Request(1, 1);
+// var req1 = new Request(1, 1, 3);
 // console.log(req1.create());
 // req1.update({bookId: 2}, 1);
 // req1.delete(3);
