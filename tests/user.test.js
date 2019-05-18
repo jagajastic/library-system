@@ -121,8 +121,49 @@ describe('Book Request Test', function () {
   });
 
   test('if book id is wrong', function () {
-    var user1 = new User('cassie', 'try', 0);
+    var user1 = new User('jumal', 'tete', 0);
     user1.create();
     expect(user1.createBookRequest({bookId: 0, userId: 1})).toBeFalsy();
+  });
+});
+
+// read request method 
+describe('Read book Request Test', function () {
+  beforeAll( function () {
+    db.users.length = 0;
+    db.books.length = 0;
+    db.request.length = 0;
+    var book1 = new Book('javascript', 'programming', 'ninja', 4);
+    book1.create();
+    var book2 = new Book('css', 'programming', 'ninja', 4);
+    book2.create();
+    var book3 = new Book('html', 'programming', 'ninja', 4);
+    book3.create();
+    var book4 = new Book('css', 'programming', 'ninja', 4);
+    book4.create();
+    var user1 = new User('jumal', 'tete', 0);
+    user1.create();
+    user1.createBookRequest({bookId: 2, userId: 1});
+    var user2 = new User('jumal', 'tete', 0);
+    user2.create();
+    user2.createBookRequest({bookId: 1, userId: 1});
+  });
+
+  test('if read book request return the book', function () {
+    var user1 = new User('Kasim', 'otak', 0);
+    user1.create();
+    expect(user1.readBookRequest(1)).toMatchObject({"bookId": 2, "id": 1, "status": 0, "userId": 1});
+  });
+
+  test('if read book request id does not exist', function () {
+    var user1 = new User('Kasim', 'otak', 0);
+    user1.create();
+    expect(user1.readBookRequest(0)).toBeFalsy();
+  });
+
+  test('if read book request id is undefined', function () {
+    var user1 = new User('Kasim', 'otak', 0);
+    user1.create();
+    expect(user1.readBookRequest()).toBeFalsy();
   });
 });
