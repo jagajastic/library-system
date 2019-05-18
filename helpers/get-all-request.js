@@ -1,7 +1,7 @@
 // import db
 var db = require("../database");
 
-// get all request from db based on priority
+// get all request sorted by priority from db based
 function getAllRequest() {
   // sorted array by priority
   var sortedBookRequest = db.request.sort(function(a, b) {
