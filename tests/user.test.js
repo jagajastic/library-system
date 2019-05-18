@@ -2,6 +2,8 @@
 var User = require("../src/constructors/user");
 // import database
 var db = require("../database");
+// import book
+var Book = require('../src/constructors/book');
 
 // User constructor suite
 describe("User Constructor Test ", function() {
@@ -87,5 +89,40 @@ describe('Delete method Test', function () {
   test('if record id is undefined', function () {
     var user1 = new User("lot", "pass", 1);
     expect(user1.delete()).toBeFalsy();
+  });
+});
+
+//book request method
+describe('Book Request Test', function () {
+  beforeAll( function () {
+    db.users.length = 0;
+    db.books.length = 0;
+    db.request.length = 0;
+    var book1 = new Book('javascript', 'programming', 'ninja', 4);
+    book1.create();
+    var book2 = new Book('css', 'programming', 'ninja', 4);
+    book2.create();
+    var book3 = new Book('html', 'programming', 'ninja', 4);
+    book3.create();
+    var book4 = new Book('css', 'programming', 'ninja', 4);
+    book4.create();
+  });
+
+  test('if user can create book request', function () {
+    var user1 = new User('jam', 'pass', 0);
+    user1.create();
+    expect(user1.createBookRequest({bookId: 3, userId: 1})).toBe(1);
+  });
+
+  test('if user id is wrong', function () {
+    var user1 = new User('cassie', 'try', 0);
+    user1.create();
+    expect(user1.createBookRequest({bookId: 1, userId: 0})).toBeFalsy();
+  });
+
+  test('if book id is wrong', function () {
+    var user1 = new User('cassie', 'try', 0);
+    user1.create();
+    expect(user1.createBookRequest({bookId: 0, userId: 1})).toBeFalsy();
   });
 });
