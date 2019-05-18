@@ -6,6 +6,8 @@ var User = require("../src/constructors/user");
 var Request = require("../src/constructors/request");
 // import database
 var db = require("../database");
+// import user constructor
+var User = require('../src/constructors/user');
 
 // create book requestion method
 describe("Create method Test", function() {
@@ -24,22 +26,22 @@ describe("Create method Test", function() {
   });
 
   test("if request is created", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     expect(req1.create()).toBe(1);
   });
 
   test("if user id does not exist", function() {
-    var req1 = new Request(1, 2);
+    var req1 = new Request(1, 2, 3);
     expect(req1.create()).toBeFalsy();
   });
 
   test("if book id does not exist", function() {
-    var req1 = new Request(9, 1);
+    var req1 = new Request(9, 1, 3);
     expect(req1.create()).toBeFalsy();
   });
 
   test("if book is taken", function() {
-    var req1 = new Request(2, 1);
+    var req1 = new Request(2, 1, 3);
     expect(req1.create()).toBeFalsy();
   });
 });
@@ -62,42 +64,42 @@ describe("Read request Method test", function() {
   });
 
   test("if request is found", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.read(1)).toMatchObject({
       bookId: 1,
       id: 1,
-      status: 0,
+      status: 'pending',
       userId: 1
     });
   });
 
   test("if request id is nnot passed", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.read()).toBeFalsy();
   });
 
   test("if request id is not found", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.read(5)).toBeFalsy();
   });
 
   test("if request id is zero", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.read(0)).toBeFalsy();
   });
 
   test("if request id is undefined", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.read(undefined)).toBeFalsy();
   });
 });
 
-// update method tes
+// update method tes 
 describe("Update request method Test", function() {
   beforeAll(function() {
     db.users.length = 0;
@@ -115,19 +117,19 @@ describe("Update request method Test", function() {
   });
 
   test("if record was updated", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.update({ bookId: 4 }, 1)).toBeTruthy();
   });
 
   test("if request id does not exist", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.update({ bookId: 4 }, 4)).toBeFalsy();
   });
 
   test("if request id is undefined", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
     expect(req1.update({ bookId: 4 })).toBeFalsy();
   });
@@ -151,25 +153,25 @@ describe("Delete request method test", function() {
   });
 
   test("if request is removed", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
-    var req2 = new Request(1, 1);
+    var req2 = new Request(1, 1, 3);
     req2.create();
     expect(req1.delete(1)).toHaveLength(1);
   });
 
   test("if request id is undefined", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
-    var req2 = new Request(1, 1);
+    var req2 = new Request(1, 1, 3);
     req2.create();
     expect(req1.delete()).toBeFalsy();
   });
 
   test("if request id is not found", function() {
-    var req1 = new Request(1, 1);
+    var req1 = new Request(1, 1, 3);
     req1.create();
-    var req2 = new Request(1, 1);
+    var req2 = new Request(1, 1, 3);
     req2.create();
     expect(req1.delete(20)).toBeFalsy();
   });
