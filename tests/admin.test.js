@@ -4,10 +4,6 @@ var Admin = require("../src/constructors/admin");
 var User = require("../src/constructors/user");
 // import book
 var Book = require("../src/constructors/book");
-// import book request
-var Request = require("../src/constructors/request");
-// import db
-var db = require("../database");
 
 // admin constructor suite
 describe("Admin Constructor Test suite", function() {
