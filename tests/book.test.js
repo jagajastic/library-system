@@ -1,7 +1,5 @@
 // import book constructor
 var Book = require("../src/constructors/book");
-// import database
-var db = require("../database");
 
 // book constructor suite
 describe("Book Constructor Test suite", function() {

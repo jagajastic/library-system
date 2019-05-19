@@ -3,7 +3,7 @@ var db = require("../database");
 
 function findRequest(id) {
   // return false if id is undefined
-  if (!id) {
+  if (!id || id === undefined ||  id === null) {
     return false;
   }
   // start of the array

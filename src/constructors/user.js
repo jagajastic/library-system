@@ -4,6 +4,8 @@ var assignId = require("../../helpers/assign-id");
 var db = require("../../database");
 // import find user function
 var findUser = require("../../helpers/find-user");
+//  import request constructor
+var Request = require("../constructors/request");
 
 //User constructor
 function User(username, password, priority) {
@@ -25,7 +27,7 @@ User.prototype.create = function() {
  */
 User.prototype.read = function(id) {
   // return false if id is undefined
-  if (!id){
+  if (!id) {
     // return false since id is undefined
     return false;
   }
@@ -59,10 +61,23 @@ User.prototype.delete = function(id) {
   // return false when user is not found;
   return false;
 };
-// var user1 = new User("joe", "pass", 3);
-// user1.create();
-// console.log(db.users);
-// console.log(user1.update({username : 'uuser', password: 'upass', priority: 1}, 1));
-// console.log(user1.delete(1));
+
+// create request method
+User.prototype.createBookRequest = function(data) {
+  // instantiate the request
+  var req1 = new Request(data.bookId, data.userId, data.userPriority);
+  var result = req1.create();
+  // return the created request if userId and bookId is correct else return false
+  return result;
+};
+
+// read book requestion
+User.prototype.readBookRequest = function(id) {
+  // instantiate the request(object)
+  var req1 = new Request(1, 1, 3);
+  // return result of read whether false or true
+  return req1.read(id);
+};
+
 // export user constructor
 module.exports = User;
