@@ -32,7 +32,7 @@ The string methods is in the methods/stringmethods.js file and it contain the fo
 
 - **Create** : add user with username, password and a set priority 
 
-- **Read** : This get user by id **
+- **Read** : This get user by id 
 
 - **Update** : This helps user to make changes to their existing record 
 
@@ -46,7 +46,7 @@ The string methods is in the methods/stringmethods.js file and it contain the fo
 
 - **Create** : This helps admin to add book with book name, category, author and a quantity 
 
-- **Read** : This get book by id **
+- **Read** : This get book by id 
 
 - **Update** : This helps admin to make changes to their existing book record by id
 
@@ -54,9 +54,9 @@ The string methods is in the methods/stringmethods.js file and it contain the fo
 
 **Request**
 
-- **Create** : This helps book request **
+- **Create** : This helps book request 
 
-- **Read** : This get book request by id **
+- **Read** : This get book request by id 
 
 - **Update** : This helps to make changes to their existing book request record by id
 
