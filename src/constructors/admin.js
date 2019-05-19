@@ -42,8 +42,6 @@ Admin.prototype.delete = function(id) {
   if (!id) {
     return false;
   }
-  // console.log(findRequest(id));
-  
   if (!findRequest(id)) {
     return false;
   }
