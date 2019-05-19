@@ -4,10 +4,6 @@ var findUser = require("../../helpers/find-user");
 var assignId = require("../../helpers/assign-id");
 // import assign-id helper function
 var findBook = require("../../helpers/find-book");
-// import book
-// var Book = require("../constructors/book");
-// import users
-// var User = require("../constructors/user");
 // import database
 var db = require("../../database");
 // import find-request
@@ -80,23 +76,6 @@ Request.prototype.delete = function(id) {
   // return false when request is not found;
   return false;
 };
-// create book
-// var book1 = new Book("new school", "physics", "Gandi bi", 1);
-// book1.create();
-// // create another book
-// var book2 = new Book("new school chemistry", "chemistry", "Gandi bi", 1);
-// book2.create();
-// // create user
-// var student = new User("joe", "pass", 3);
-// student.create();
-// // request obj
-// var req1 = new Request(1, 1, 3);
-// console.log(req1.create());
-// req1.update({bookId: 2}, 1);
-// req1.delete(3);
-// console.log(req1.read(1));
-
-// console.log(db.request);
 
 // export Request constructor
 module.exports = Request;
