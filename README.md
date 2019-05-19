@@ -12,7 +12,7 @@ Library system is an API system that manages a minimal library system using Arra
 
 **- [Install Git](https://ehttps://code.visualstudio.com/download)**
 
-**# Clone the Repository**
+# Clone the Repository
 
 **Run**
 
