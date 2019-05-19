@@ -1,8 +1,8 @@
-**Library System**
+## Library System
 
 Library system is an API system that manages a minimal library system using Array as Database.
 
-**Getting Started**
+# Getting Started
 
 **Before you start, you need to get the following software install in you system**
 
@@ -18,13 +18,13 @@ Library system is an API system that manages a minimal library system using Arra
 
 <code>git clone https://github.com/jagajastic/regular-expression.git</code>
 
-**# Installation**
+# Installation
 
 **To install all dependencies, Run**
 
 <code>npm install</code>
 
-**# Library System Methods**
+# Library System Methods
 
 The string methods is in the methods/stringmethods.js file and it contain the following additional methods;
 
