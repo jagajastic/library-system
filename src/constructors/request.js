@@ -1,17 +1,17 @@
 // import find-user helper function
-var findUser = require("../../helpers/find-user");
+var findUser = require('../../helpers/find-user');
 // import assign-id function
-var assignId = require("../../helpers/assign-id");
+var assignId = require('../../helpers/assign-id');
 // import assign-id helper function
-var findBook = require("../../helpers/find-book");
+var findBook = require('../../helpers/find-book');
 // import database
-var db = require("../../database");
+var db = require('../../database');
 // import find-request
-var findRequest = require("../../helpers/find-request");
+var findRequest = require('../../helpers/find-request');
 
 // request constructor
 function Request(bookId, userId, userPriority) {
-  this.id = assignId("request");
+  this.id = assignId('request');
   this.bookId = bookId;
   this.userId = userId;
   this.userPriority = userPriority;
@@ -29,13 +29,13 @@ Request.prototype.create = function() {
   //   check if book is available
   if (findBook(this.bookId).quantity === 0) {
     // if not available, return book taken
-    return "book taken";
+    return 'book taken';
   }
 
   return db.request.push(this);
 };
 
-// read method
+// read method by id
 Request.prototype.read = function(id) {
   // return false if id is undefind
   if (!id || id === undefined || id === null) {
@@ -45,7 +45,7 @@ Request.prototype.read = function(id) {
   return findRequest(id);
 };
 
-// update method
+// update method by id and data to change the existing one
 Request.prototype.update = function(data, id) {
   // check if id is undefined
   if (!id) {
@@ -62,8 +62,8 @@ Request.prototype.update = function(data, id) {
   return request;
 };
 
-// delete request method
-Request.prototype.delete = function(id) {
+// delete request method by id
+Request.prototype.deleteById = function(id) {
   // return false when id is empty
   if (!id) {
     return false;
