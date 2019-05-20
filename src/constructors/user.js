@@ -1,15 +1,15 @@
 // import assign-id method
-var assignId = require("../../helpers/assign-id");
+var assignId = require('../../helpers/assign-id');
 // import database
-var db = require("../../database");
+var db = require('../../database');
 // import find user function
-var findUser = require("../../helpers/find-user");
+var findUser = require('../../helpers/find-user');
 //  import request constructor
-var Request = require("../constructors/request");
+var Request = require('../constructors/request');
 
-//User constructor
+// User constructor
 function User(username, password, priority) {
-  this.id = assignId("users");
+  this.id = assignId('users');
   this.username = username;
   this.password = password;
   this.priority = priority;
@@ -48,7 +48,7 @@ User.prototype.update = function(data, id) {
   return user;
 };
 
-User.prototype.delete = function(id) {
+User.prototype.deleteById = function(id) {
   // return false when id is empty
   if (!id) {
     return false;
@@ -62,7 +62,7 @@ User.prototype.delete = function(id) {
   return false;
 };
 
-// create request method
+// create request method 
 User.prototype.createBookRequest = function(data) {
   // instantiate the request
   var req1 = new Request(data.bookId, data.userId, data.userPriority);
@@ -71,7 +71,7 @@ User.prototype.createBookRequest = function(data) {
   return result;
 };
 
-// read book requestion
+// read book requestion by id
 User.prototype.readBookRequest = function(id) {
   // instantiate the request(object)
   var req1 = new Request(1, 1, 3);
@@ -81,3 +81,4 @@ User.prototype.readBookRequest = function(id) {
 
 // export user constructor
 module.exports = User;
+
