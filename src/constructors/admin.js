@@ -36,8 +36,8 @@ Admin.prototype.approveBookRequest = function() {
   return true;
 };
 
-// delete single request method
-Admin.prototype.delete = function(id) {
+// delete single book request by id
+Admin.prototype.deleteBookRequest = function(id) {
   // check if id is not defined
   if (!id) {
     return false;
@@ -56,7 +56,7 @@ Admin.prototype.delete = function(id) {
 };
 
 // delete all request by admin
-Admin.prototype.deleteAll = function () {
+Admin.prototype.deleteAllBookRequest = function () {
 var deleteALlRequest = db.request.length = 0
   return deleteALlRequest;
 }
