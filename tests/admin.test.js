@@ -62,7 +62,7 @@ describe('Delete Request by Id Test', function() {
   test('if admin can delete request', function() {
     var admin = new Admin('admin', 'pas', 3);
     admin.create();
-    expect(admin.delete(1)).toMatchObject([
+    expect(admin.deleteBookRequest(1)).toMatchObject([
       { bookId: 1, id: 1, status: 'Approved', userId: 1, userPriority: 2 }
     ]);
   });
@@ -70,13 +70,13 @@ describe('Delete Request by Id Test', function() {
   test('if request id is wrong', function() {
     var admin = new Admin('admin', 'pas', 3);
     admin.create();
-    expect(admin.delete(40)).toBeFalsy();
+    expect(admin.deleteBookRequest(40)).toBeFalsy();
   });
 
   test('if request id is undefined or null', function() {
     var admin = new Admin('admin', 'pas', 3);
     admin.create();
-    expect(admin.delete()).toBeFalsy();
+    expect(admin.deleteBookRequest()).toBeFalsy();
   });
 
 });
@@ -86,7 +86,7 @@ describe('Delete all book request', function () {
   test('if admin can delete all book request', function () {
     var admin = new Admin('admin', 'pas', 4);
     admin.create();
-    expect(admin.deleteAll()).toBe(0);
+    expect(admin.deleteAllBookRequest()).toBe(0);
   });
 
   
