@@ -1,9 +1,9 @@
 // import user constructor
-var User = require("./user");
+var User = require('./user');
 // import assign id function
-var assignId = require("../../helpers/assign-id");
+var assignId = require('../../helpers/assign-id');
 // import getAllRequest helper function
-var getAllRequest = require("../../helpers/get-all-request");
+var getAllRequest = require('../../helpers/get-all-request');
 // import find request
 var findRequest = require('../../helpers/find-request');
 // import database
@@ -30,7 +30,7 @@ Admin.prototype.approveBookRequest = function() {
   var sortedBookRequest = getAllRequest();
   // loop through the array for same book request
   for (index = 0; index < sortedBookRequest.length; index++) {
-    sortedBookRequest[index].status = "Approved";
+    sortedBookRequest[index].status = 'Approved';
   }
   // return true after approval
   return true;
@@ -63,3 +63,4 @@ var deleteALlRequest = db.request.length = 0
 
 // export Admin constructor
 module.exports = Admin;
+
