@@ -1,5 +1,5 @@
 // import database
-var db = require("../database");
+var db = require('../database');
 
 function findRequest(id) {
   // return false if id is undefined

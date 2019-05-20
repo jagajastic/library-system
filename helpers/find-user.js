@@ -23,4 +23,6 @@ function findUser (id) {
   return db.users[middle].id === id ? db.users[middle] : false;
 }
 
+// export findUser to global
 module.exports = findUser;
+

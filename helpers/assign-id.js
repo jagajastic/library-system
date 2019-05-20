@@ -1,5 +1,5 @@
 // import database
-var db = require("../database");
+var db = require('../database');
 // generate id from collection pass as argument
 function assignId(typeOfId) {
   // return the generated id

@@ -1,5 +1,5 @@
 // import db
-var db = require("../database");
+var db = require('../database');
 
 // get all request sorted by priority from db based
 function getAllRequest() {
@@ -11,3 +11,4 @@ function getAllRequest() {
 
 // export getAllRequest function
 module.exports = getAllRequest;
+
