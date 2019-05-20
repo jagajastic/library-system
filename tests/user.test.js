@@ -79,17 +79,17 @@ describe('Update Test', function() {
 describe('Delete method Test', function() {
   test('if record is deleted from database', function() {
     var user1 = new User('lot', 'pass', 1);
-    expect(user1.delete(1)).toHaveLength(1);
+    expect(user1.deleteById(1)).toHaveLength(1);
   });
 
   test('if record is not found', function() {
     var user1 = new User('lot', 'pass', 1);
-    expect(user1.delete(90)).toBeFalsy();
+    expect(user1.deleteById(90)).toBeFalsy();
   });
 
   test('if record id is undefined', function() {
     var user1 = new User('lot', 'pass', 1);
-    expect(user1.delete()).toBeFalsy();
+    expect(user1.deleteById()).toBeFalsy();
   });
 });
 

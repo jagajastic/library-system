@@ -153,7 +153,7 @@ describe('Delete request method test', function() {
     req1.create();
     var req2 = new Request(1, 1, 3);
     req2.create();
-    expect(req1.delete(1)).toHaveLength(1);
+    expect(req1.deleteById(1)).toHaveLength(1);
   });
 
   test('if request id is undefined', function() {
@@ -161,7 +161,7 @@ describe('Delete request method test', function() {
     req1.create();
     var req2 = new Request(1, 1, 3);
     req2.create();
-    expect(req1.delete(null)).toBeFalsy();
+    expect(req1.deleteById(null)).toBeFalsy();
   });
 
   test('if request id is not found', function() {
@@ -169,7 +169,7 @@ describe('Delete request method test', function() {
     req1.create();
     var req2 = new Request(1, 1, 3);
     req2.create();
-    expect(req1.delete(20)).toBeFalsy();
+    expect(req1.deleteById(20)).toBeFalsy();
   });
 });
 
