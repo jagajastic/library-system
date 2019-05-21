@@ -17,6 +17,10 @@ function User(username, password, priority) {
 
 // User create methods
 User.prototype.createUser = function() {
+  // check to ensure user created is not Admin
+  if (this.priority === 4) {
+    return false;
+  }
   return db.users.push(this);
 };
 

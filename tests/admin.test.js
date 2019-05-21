@@ -32,9 +32,9 @@ describe('Approve Book Request', function() {
     // create book
     var pie = new Book('pie', 'adventure', 'authur', 2);
     pie.createBook();
-    var newSchool = new Book('new school physics', 'science', 4);
+    var newSchool = new Book('new school physics', 'science', 'author', 4);
     newSchool.createBook();
-    var java = new Book('java', 'programming', 'jbins', 3);
+    var java = new Book('java', 'programming', 'jbins', 1);
     java.createBook();
     var python = new Book('python', 'programming', 'pycham', 2);
     python.createBook();
@@ -46,13 +46,13 @@ describe('Approve Book Request', function() {
   });
   test('if Admin can approve request', function() {
     var admin = new Admin('admin', 'pas', 4);
-    admin.createUser();
+    admin.createAdmin();
     expect(admin.approveBookRequest()).toBeTruthy();
   });
 
   test('if user is not admin', function() {
     var admin = new Admin('admin', 'pas', 3);
-    admin.createUser();
+    admin.createAdmin();
     expect(admin.approveBookRequest()).toBeFalsy();
   });
 });
@@ -61,7 +61,7 @@ describe('Approve Book Request', function() {
 describe('Delete Request by Id Test', function() {
   test('if admin can delete request', function() {
     var admin = new Admin('admin', 'pas', 3);
-    admin.createUser();
+    admin.createAdmin();
     expect(admin.deleteBookRequest(1)).toMatchObject([
       { bookId: 1, id: 1, status: 'Approved', userId: 1, userPriority: 2 }
     ]);
@@ -69,7 +69,7 @@ describe('Delete Request by Id Test', function() {
 
   test('if request id is wrong', function() {
     var admin = new Admin('admin', 'pas', 3);
-    admin.createUser();
+    admin.createAdmin();
     expect(admin.deleteBookRequest(40)).toBeFalsy();
   });
 
@@ -85,7 +85,7 @@ describe('Delete Request by Id Test', function() {
 describe('Delete all book request', function () {
   test('if admin can delete all book request', function () {
     var admin = new Admin('admin', 'pas', 4);
-    admin.createUser();
+    admin.createAdmin();
     expect(admin.deleteAllBookRequest()).toBe(0);
   });
 });
