@@ -32,9 +32,9 @@ describe('Approve Book Request', function() {
     // create book
     var pie = new Book('pie', 'adventure', 'authur', 2);
     pie.createBook();
-    var newSchool = new Book('new school physics', 'science', 4);
+    var newSchool = new Book('new school physics', 'science', 'author', 4);
     newSchool.createBook();
-    var java = new Book('java', 'programming', 'jbins', 3);
+    var java = new Book('java', 'programming', 'jbins', 1);
     java.createBook();
     var python = new Book('python', 'programming', 'pycham', 2);
     python.createBook();
