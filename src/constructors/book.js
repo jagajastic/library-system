@@ -21,12 +21,12 @@ Book.prototype.createBook = function() {
 };
 
 // read book
-Book.prototype.read = function(id) {
+Book.prototype.readBook = function(id) {
   return findBook(id);
 };
 
 // update method
-Book.prototype.update = function(data, id) {
+Book.prototype.updateBook = function(data, id) {
   var book = findBook(id);
   if (book) {
     book.title = data.title;
@@ -39,7 +39,8 @@ Book.prototype.update = function(data, id) {
   }
 };
 
-Book.prototype.delete = function(id) {
+// delete book method by Id
+Book.prototype.deleteBook = function(id) {
   // return false if id is undefined
   if (!id) {
     return false;
@@ -53,8 +54,8 @@ Book.prototype.delete = function(id) {
   return false;
 };
 
-// search book method
-Book.prototype.search = function(bookTitle) {
+// search book method by title
+Book.prototype.searchBook = function(bookTitle) {
   // return false if book title is undefined
   if (!bookTitle || typeof bookTitle === 'number') {
     return false;
