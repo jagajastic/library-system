@@ -22,6 +22,15 @@ Admin.prototype = Object.create(User.prototype);
 // re-assign Admin connstructor to Admin
 Admin.prototype.constructor = Admin;
 
+// create admin account
+Admin.prototype.createAdmin = function() {
+  // chekcto ensure that is admin creation
+  if (this.priority !== 4) {
+    return false;
+  }
+  // save the admin to database
+  return db.users.push(this);
+};
 // approve book request method
 Admin.prototype.approveBookRequest = function() {
   // check if not admin
@@ -37,12 +46,12 @@ Admin.prototype.approveBookRequest = function() {
     // check if book is out of stock
     if (bookQuantity.quantity === 0) {
       // book is oout of stock, current request status set to book taken
-      sortedBookRequest[index].status = 'book taken';
+      sortedBookRequest[index].status = "book taken";
     } else {
       // approve
-      sortedBookRequest[index].status = 'Approved';
+      sortedBookRequest[index].status = "Approved";
       // deduct one from the book
-      bookQuantity.quantity =  bookQuantity.quantity - 1;
+      bookQuantity.quantity = bookQuantity.quantity - 1;
     }
   }
   // return true after approval
