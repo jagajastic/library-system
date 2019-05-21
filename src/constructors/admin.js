@@ -1,11 +1,11 @@
 // import user constructor
 var User = require('./user');
 // import assign id function
-var assignId = require('../../helpers/assign-id');
+var assignId = require('../../helpers/assignId');
 // import getAllRequest helper function
-var getAllRequest = require('../../helpers/get-all-request');
+var getAllRequest = require('../../helpers/getAllRequest');
 // import find request
-var findRequest = require('../../helpers/find-request');
+var findRequest = require('../../helpers/findRequest');
 // import database
 var db = require('../../database');
 
