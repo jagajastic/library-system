@@ -1,13 +1,13 @@
 // import find-user helper function
-var findUser = require('../../helpers/find-user');
+var findUser = require('../../helpers/findUser');
 // import assign-id function
-var assignId = require('../../helpers/assign-id');
+var assignId = require('../../helpers/assignId');
 // import assign-id helper function
-var findBook = require('../../helpers/find-book');
+var findBook = require('../../helpers/findBook');
 // import database
 var db = require('../../database');
 // import find-request
-var findRequest = require('../../helpers/find-request');
+var findRequest = require('../../helpers/findRequest');
 
 // request constructor
 function Request(bookId, userId, userPriority) {

@@ -1,9 +1,9 @@
 // import assign-id method
-var assignId = require('../../helpers/assign-id');
+var assignId = require('../../helpers/assignId');
 // import database
 var db = require('../../database');
 // import find user function
-var findUser = require('../../helpers/find-user');
+var findUser = require('../../helpers/findUser');
 //  import request constructor
 var Request = require('../constructors/request');
 

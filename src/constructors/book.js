@@ -1,7 +1,7 @@
 // import assign id function
-var assignId = require('../../helpers/assign-id');
+var assignId = require('../../helpers/assignId');
 // import book
-var findBook = require('../../helpers/find-book');
+var findBook = require('../../helpers/findBook');
 // import db
 var db = require('../../database');
 
