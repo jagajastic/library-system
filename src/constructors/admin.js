@@ -63,4 +63,3 @@ var deleteALlRequest = db.request.length = 0
 
 // export Admin constructor
 module.exports = Admin;
-

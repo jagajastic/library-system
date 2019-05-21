@@ -81,4 +81,3 @@ User.prototype.readBookRequest = function(id) {
 
 // export user constructor
 module.exports = User;
-
