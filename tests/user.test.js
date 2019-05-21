@@ -19,10 +19,15 @@ describe('User Constructor Test ', function() {
     });
   });
 
-  // create method test suite
+  // create user method test suite
   test('if create method add record to the database', function() {
     var user1 = new User('joe', 'pass', 3);
     expect(user1.createUser()).toBe(1);
+  });
+
+  test('if user creatiion return false for priority equal 4', function() {
+    var user1 = new User('joe', 'pass', 4);
+    expect(user1.createUser()).toBeFalsy();
   });
 });
 
