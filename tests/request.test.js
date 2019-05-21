@@ -23,7 +23,7 @@ describe('Create method Test', function() {
     book2.create();
     // create user
     var student = new User('joe', 'pass', 3);
-    student.create();
+    student.createUser();
   });
 
   test('if request is created', function() {
@@ -61,7 +61,7 @@ describe('Read request Method test', function() {
     book2.create();
     // create user
     var student = new User('joe', 'pass', 3);
-    student.create();
+    student.createUser();
   });
 
   test('if request is found', function() {
@@ -108,7 +108,7 @@ describe('Update request method Test', function() {
     book2.create();
     // create user
     var student = new User('joe', 'pass', 3);
-    student.create();
+    student.createUser();
   });
 
   test('if record was updated', function() {
@@ -145,7 +145,7 @@ describe('Delete request method test', function() {
     book2.create();
     // create user
     var student = new User('joe', 'pass', 3);
-    student.create();
+    student.createUser();
   });
 
   test('if request is removed', function() {
