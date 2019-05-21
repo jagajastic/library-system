@@ -66,7 +66,7 @@ User.prototype.deleteUser = function(id) {
 User.prototype.createBookRequest = function(data) {
   // instantiate the request
   var req1 = new Request(data.bookId, data.userId, data.userPriority);
-  var result = req1.create();
+  var result = req1.createBookRequest();
   // return the created request if userId and bookId is correct else return false
   return result;
 };
@@ -76,7 +76,7 @@ User.prototype.readBookRequest = function(id) {
   // instantiate the request(object)
   var req1 = new Request(1, 1, 3);
   // return result of read whether false or true
-  return req1.read(id);
+  return req1.readBookRequest(id);
 };
 
 // export user constructor
