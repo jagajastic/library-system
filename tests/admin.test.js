@@ -31,13 +31,13 @@ describe('Approve Book Request', function() {
     josh.createUser();
     // create book
     var pie = new Book('pie', 'adventure', 'authur', 2);
-    pie.create();
+    pie.createBook();
     var newSchool = new Book('new school physics', 'science', 4);
-    newSchool.create();
+    newSchool.createBook();
     var java = new Book('java', 'programming', 'jbins', 3);
-    java.create();
+    java.createBook();
     var python = new Book('python', 'programming', 'pycham', 2);
-    python.create();
+    python.createBook();
     // request
     adabe.createBookRequest({ bookId: 1, userId: 1, userPriority: 2 });
     emma.createBookRequest({ bookId: 3, userId: 2, userPriority: 1 });

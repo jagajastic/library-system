@@ -15,7 +15,7 @@ function Book(title, category, author, quantity) {
 }
 
 // create book mehtod
-Book.prototype.create = function() {
+Book.prototype.createBook = function() {
   // add new book record to database
   return db.books.push(this);
 };

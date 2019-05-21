@@ -17,10 +17,10 @@ describe('Create method Test', function() {
     db.request.length = 0;
     // create book
     var book1 = new Book('new school', 'physics', 'Gandi bi', 1);
-    book1.create();
+    book1.createBook();
     // creat another book
     var book2 = new Book('new school chemistry', 'chemistry', 'ali baba', 0);
-    book2.create();
+    book2.createBook();
     // create user
     var student = new User('joe', 'pass', 3);
     student.createUser();
@@ -55,10 +55,10 @@ describe('Read request Method test', function() {
     db.request.length = 0;
     // create book
     var book1 = new Book('new school', 'physics', 'Gandi bi', 4);
-    book1.create();
+    book1.createBook();
     // creat another book
     var book2 = new Book('new school chemistry', 'chemistry', 'tab Bi', 0);
-    book2.create();
+    book2.createBook();
     // create user
     var student = new User('joe', 'pass', 3);
     student.createUser();
@@ -102,10 +102,10 @@ describe('Update request method Test', function() {
     db.request.length = 0;
     // create book
     var book1 = new Book('new school', 'physics', 'Gandi bi', 4);
-    book1.create();
+    book1.createBook();
     // creat another book
     var book2 = new Book('new school chemistry', 'chemistry', 0);
-    book2.create();
+    book2.createBook();
     // create user
     var student = new User('joe', 'pass', 3);
     student.createUser();
@@ -139,10 +139,10 @@ describe('Delete request method test', function() {
     db.request.length = 0;
     // create book
     var book1 = new Book('new school', 'physics', 'Gandi bi', 4);
-    book1.create();
+    book1.createBook();
     // creat another book
     var book2 = new Book('new school chemistry', 'chemistry', 0);
-    book2.create();
+    book2.createBook();
     // create user
     var student = new User('joe', 'pass', 3);
     student.createUser();

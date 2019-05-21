@@ -100,13 +100,13 @@ describe('Book Request Test', function() {
     db.books.length = 0;
     db.request.length = 0;
     var book1 = new Book('javascript', 'programming', 'ninja', 4);
-    book1.create();
+    book1.createBook();
     var book2 = new Book('css', 'programming', 'ninja', 4);
-    book2.create();
+    book2.createBook();
     var book3 = new Book('html', 'programming', 'ninja', 4);
-    book3.create();
+    book3.createBook();
     var book4 = new Book('css', 'programming', 'ninja', 4);
-    book4.create();
+    book4.createBook();
   });
 
   test('if user can create book request', function() {
@@ -135,13 +135,13 @@ describe('Read book Request Test', function() {
     db.books.length = 0;
     db.request.length = 0;
     var book1 = new Book('javascript', 'programming', 'ninja', 4);
-    book1.create();
+    book1.createBook();
     var book2 = new Book('css', 'programming', 'ninja', 4);
-    book2.create();
+    book2.createBook();
     var book3 = new Book('html', 'programming', 'ninja', 4);
-    book3.create();
+    book3.createBook();
     var book4 = new Book('css', 'programming', 'ninja', 4);
-    book4.create();
+    book4.createBook();
     var user1 = new User('jumal', 'tete', 0);
     user1.createUser();
     user1.createBookRequest({ bookId: 2, userId: 1, userPriority: 3 });
