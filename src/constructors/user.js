@@ -16,7 +16,7 @@ function User(username, password, priority) {
 }
 
 // User create methods
-User.prototype.create = function() {
+User.prototype.createUser = function() {
   return db.users.push(this);
 };
 
@@ -25,7 +25,7 @@ User.prototype.create = function() {
  * loop through user array
  * return users
  */
-User.prototype.read = function(id) {
+User.prototype.readUser = function(id) {
   // return false if id is undefined
   if (!id) {
     // return false since id is undefined
@@ -35,7 +35,7 @@ User.prototype.read = function(id) {
 };
 
 // update user infomation when found, else return false
-User.prototype.update = function(data, id) {
+User.prototype.updateUser = function(data, id) {
   // find user, if found return else return false
   var user = findUser(id);
   if (user) {
@@ -48,7 +48,7 @@ User.prototype.update = function(data, id) {
   return user;
 };
 
-User.prototype.deleteById = function(id) {
+User.prototype.deleteUser = function(id) {
   // return false when id is empty
   if (!id) {
     return false;
@@ -66,7 +66,7 @@ User.prototype.deleteById = function(id) {
 User.prototype.createBookRequest = function(data) {
   // instantiate the request
   var req1 = new Request(data.bookId, data.userId, data.userPriority);
-  var result = req1.create();
+  var result = req1.createBookRequest();
   // return the created request if userId and bookId is correct else return false
   return result;
 };
@@ -76,9 +76,8 @@ User.prototype.readBookRequest = function(id) {
   // instantiate the request(object)
   var req1 = new Request(1, 1, 3);
   // return result of read whether false or true
-  return req1.read(id);
+  return req1.readBookRequest(id);
 };
 
 // export user constructor
 module.exports = User;
-

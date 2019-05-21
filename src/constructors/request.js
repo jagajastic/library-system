@@ -18,10 +18,9 @@ function Request(bookId, userId, userPriority) {
   this.status = 'pending';
 }
 
-// create request method
-Request.prototype.create = function() {
+// create book request method
+Request.prototype.createBookRequest = function() {
   // check if user, book exist
-
   if (!findUser(this.userId) || !findBook(this.bookId) || !this.userPriority) {
     // return false for book/user do not exist
     return false;
@@ -35,8 +34,8 @@ Request.prototype.create = function() {
   return db.request.push(this);
 };
 
-// read method by id
-Request.prototype.read = function(id) {
+// read book request method by id
+Request.prototype.readBookRequest = function(id) {
   // return false if id is undefind
   if (!id || id === undefined || id === null) {
     return false;
@@ -46,7 +45,7 @@ Request.prototype.read = function(id) {
 };
 
 // update method by id and data to change the existing one
-Request.prototype.update = function(data, id) {
+Request.prototype.updateBookRequest = function(data, id) {
   // check if id is undefined
   if (!id) {
     return false;
@@ -63,7 +62,7 @@ Request.prototype.update = function(data, id) {
 };
 
 // delete request method by id
-Request.prototype.deleteById = function(id) {
+Request.prototype.deleteBookRequest = function(id) {
   // return false when id is empty
   if (!id) {
     return false;

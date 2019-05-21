@@ -25,4 +25,3 @@ function findUser (id) {
 
 // export findUser to global
 module.exports = findUser;
-

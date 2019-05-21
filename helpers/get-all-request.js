@@ -11,4 +11,3 @@ function getAllRequest() {
 
 // export getAllRequest function
 module.exports = getAllRequest;
-
