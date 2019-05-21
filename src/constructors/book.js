@@ -1,13 +1,13 @@
 // import assign id function
-var assignId = require('../../helpers/assignId');
+var assignId = require("../../helpers/assignId");
 // import book
-var findBook = require('../../helpers/findBook');
+var findBook = require("../../helpers/findBook");
 // import db
-var db = require('../../database');
+var db = require("../../database");
 
 // books
 function Book(title, category, author, quantity) {
-  this.id = assignId('books');
+  this.id = assignId("books");
   this.title = title;
   this.category = category;
   this.author = author;
@@ -57,11 +57,11 @@ Book.prototype.deleteBook = function(id) {
 // search book method by title
 Book.prototype.searchBook = function(bookTitle) {
   // return false if book title is undefined
-  if (!bookTitle || typeof bookTitle === 'number') {
+  if (!bookTitle || typeof bookTitle === "number") {
     return false;
   }
   // regex pattern to check with book title
-  var pattern = new RegExp(bookTitle, 'g');
+  var pattern = new RegExp(bookTitle, "g");
   // empty array to store match found
   var foundTitle = [];
   // loop through book array, return all booktitle match
