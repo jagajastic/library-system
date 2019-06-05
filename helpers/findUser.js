@@ -1,5 +1,5 @@
 // import database
-var db = require('../database');
+import db from '../database';
 function findUser (id) {
     // return false if id is undefined
   if (!id) {
@@ -24,4 +24,5 @@ function findUser (id) {
 }
 
 // export findUser to global
-module.exports = findUser;
+export default findUser;
+// module.exports = findUser;

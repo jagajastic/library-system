@@ -1,5 +1,5 @@
 // import database
-var db = require('../database');
+import db from '../database';
 
 function findRequest(id) {
   // return false if id is undefined
@@ -25,4 +25,5 @@ function findRequest(id) {
 }
 
 // export findRequest method
-module.exports = findRequest;
+export default findRequest;
+// module.exports = findRequest;

@@ -1,5 +1,5 @@
 // import database
-var db  = require('../database');
+import db from '../database';
 
 // find book function by id
 function findBook(id) {
@@ -8,11 +8,11 @@ function findBook(id) {
     return false;
   }
   // start of the array
-  var start = 0;
+  let start = 0;
   // end of the array
-  var end = db.books.length - 1;
+  let end = db.books.length - 1;
   // middle of the array
-  var middle = Math.floor((start + end) / 2);
+  let middle = Math.floor((start + end) / 2);
   while (db.books[middle].id !== id && start <= end) {
     // check if id is less than the middle item id and reassign end to (middle -1)
     if (id < db.books[middle].id) end = middle - 1;
@@ -25,4 +25,5 @@ function findBook(id) {
   return db.books[middle].id === id ? db.books[middle] : false;
 }
 
-module.exports = findBook;
+export default findBook;
+// module.exports = findBook;
