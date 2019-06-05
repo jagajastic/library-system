@@ -1,5 +1,5 @@
 // import database
-var db = require('../database');
+import db from '../database';
 // generate id from collection pass as argument
 function assignId(typeOfId) {
   // return the generated id
@@ -7,4 +7,5 @@ function assignId(typeOfId) {
 }
 
 //  export assignID function to be access globally
-module.exports = assignId;
+export default assignId;
+// module.exports = assignId;

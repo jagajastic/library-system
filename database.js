@@ -5,4 +5,5 @@ var db = {
     request: []
 }
 // export the database(db) to global
-module.exports = db;
+export default db;
+// module.exports = db;
